@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:image_picker/image_picker.dart';
 
 class FaceDetectionScreen extends StatefulWidget {
+  static const String routeName = 'FaceDetectionScreen';
   @override
   State<FaceDetectionScreen> createState() => _FaceDetectionScreenState();
 }
@@ -37,31 +37,22 @@ class _FaceDetectionScreenState extends State<FaceDetectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Face Detection',
-          style: TextStyle(
-            fontStyle: FontStyle.italic,
-            color: Colors.pinkAccent,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      backgroundColor: Colors.black45,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0 , vertical: 50),
         child: Column(children: [
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             child: Container(
-              color: Colors.grey,
+              color: Colors.white38,
               width: double.infinity,
               height: 250.0,
               child: _image == null
                   ? Icon(
                       Icons.add_a_photo_outlined,
                       size: 60.0,
-                      color: Colors.white,
+                color: Colors.cyanAccent,
                     )
                   : Image.file(_image!),
             ),
@@ -78,14 +69,20 @@ class _FaceDetectionScreenState extends State<FaceDetectionScreen> {
               });
             },
             child: Container(
-              color: Colors.pinkAccent,
+              decoration: BoxDecoration(
+                color: Colors.cyanAccent,
+
+                borderRadius: BorderRadius.circular(50.0),
+              ),
               width: 250,
               height: 60.0,
               child: Center(
                   child: Text(
                 'Take Photo from Gallary',
                 style: TextStyle(
-                    color: Colors.white,
+                    fontFamily: 'Lilita One',
+
+                    color: Colors.black87,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               )),
@@ -103,14 +100,21 @@ class _FaceDetectionScreenState extends State<FaceDetectionScreen> {
               });
             },
             child: Container(
-              color: Colors.pinkAccent,
+              decoration: BoxDecoration(
+                color: Colors.cyanAccent,
+
+                borderRadius: BorderRadius.circular(50.0),
+              ),
+
               width: 250,
               height: 60.0,
               child: Center(
                   child: Text(
                 'Take Photo from Camera',
                 style: TextStyle(
-                    color: Colors.white,
+                    fontFamily: 'Lilita One',
+
+                    color: Colors.black87,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               )),
@@ -122,7 +126,8 @@ class _FaceDetectionScreenState extends State<FaceDetectionScreen> {
           Text(
             'The number of Faces in Photo : ${faces.length}',
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                fontFamily: 'Lilita One',
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           )
         ]),
       ),
